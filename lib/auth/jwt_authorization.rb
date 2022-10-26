@@ -3,19 +3,14 @@ require 'jwt'
 class JwtAuthorization < Iauthorization
 
     ALGORITHM = 'HS256'
-
-    def initialize
-        @algorithm = ALGORITHM
-    end
-
-    def encode(payload)
+    def self.encode(payload)
         JWT.encode(payload, auth_secret, ALGORITHM)
     end
 
-    def decode(token)
+    def self.decode(token)
         return {} if token.nil?
 
-        JWT.decode(token, auth_secret, true, algorithm: @algorithm)&.first
+        JWT.decode(token, auth_secret, true, algorithm: ALGORITHM)&.first
     end
 
     def auth_secret
