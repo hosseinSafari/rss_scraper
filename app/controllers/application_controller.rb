@@ -41,7 +41,10 @@ class ApplicationController < ActionController::API
   protected
 
   def authenticate_me
+    raise AuthenticationError unless auth.present?
 
+    @current_user = ::User.find_by(email: auth['email'])
+    raise AuthenticationError unless @current_user.present?
   end
 
   private
