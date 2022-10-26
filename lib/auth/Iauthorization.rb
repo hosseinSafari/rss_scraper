@@ -1,10 +1,10 @@
 class Iauthorization
 
-    def encode
+    def self.encode(payload)
         raise "Implement the encode method."
     end
 
-    def decode
-        raise "Implement the issue method."
+    def self.decode(token)
+        raise "Implement the decode method."
     end
 end

@@ -47,7 +47,7 @@ class ApplicationController < ActionController::API
   private
 
   def auth
-    # JwtAuthorization.decode(token) if token.present?
+    JwtAuthorization.decode(token) if token.present?
   end
 
   def token
