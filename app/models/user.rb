@@ -5,6 +5,12 @@ class User < ApplicationRecord
   has_many :user_roles, dependent: :destroy
   has_many :roles, through: :user_roles
   has_many :sessions, dependent: :destroy
+  has_many :user_sites, dependent: :destroy
+  has_many :sites, through: :user_sites
+  has_many :user_feeds, dependent: :destroy
+  has_many :feeds, through: :user_feeds
+  has_many :comment, dependent: :destroy
+  has_many :feeds, through: :comment
 
   # Validations
   validates :password_confirmation, presence: true
