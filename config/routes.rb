@@ -18,6 +18,8 @@ Rails.application.routes.draw do
           post :add_url
         end
       end
+
+      resources :feeds, only: %i[index show]
     end
   end
 end
