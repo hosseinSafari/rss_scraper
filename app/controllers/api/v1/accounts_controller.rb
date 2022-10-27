@@ -19,6 +19,13 @@ module Api
         render json: {token: result[:token]}, status: 200
       end
 
+      def logout
+        result = ::Api::V1::Account::Logout.call(email: @current_user&.email)
+        return render json: {errors: result.errors}, status: :bad_request if result.errors
+
+        render json: {message: "Successfully logout."}, status: 200
+      end
+
       private
 
       def register_parameters
