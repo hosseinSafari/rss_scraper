@@ -19,7 +19,11 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :feeds, only: %i[index show]
+      resources :feeds, only: %i[index show] do
+        member do
+          put :favorit
+        end
+      end
     end
   end
 end

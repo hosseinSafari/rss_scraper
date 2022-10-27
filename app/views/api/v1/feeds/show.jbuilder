@@ -1,1 +1,1 @@
-json.partial! "api/v1/feeds/feed", feed: @feed
+json.partial! "api/v1/feeds/feed", user_feed: @user_feed

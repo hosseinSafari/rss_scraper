@@ -16,5 +16,9 @@ module FeedRepository
       def self.current_user_feeds(email)
         ::Feed.joins(user_feeds: :user)&.where("users.email = :email", email: email)
       end
+
+      def self.update(id, parameters)
+        find(id)&.update!(parameters)
+      end
     end
 end

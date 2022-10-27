@@ -1,7 +1,7 @@
 module Api
     module V1
         module Feed
-            class Show
+            class Favorit
                 include Peafowl
 
                 attribute :id, ::String
@@ -12,10 +12,13 @@ module Api
 
                 def call
                     @feed_id = @id
-                    @user_feed = ::UserFeedRepository::UserFeed.find_by_relation_ids(@current_user, @feed_id)
+                    @user_feed = ::UserFeedRepository::UserFeed.find_by_relation_ids(@current_user.id, @feed_id)
                     return add_error!("Feed with id=#{@id} not found for current user.") if @user_feed.nil?
 
-                    context[:user_feed] = @user_feed
+                    favorit_status = @user_feed&.favorit&.present? ? false : true
+                    ::UserFeedRepository::UserFeed.update(@user_feed.id, {favorit: favorit_status})
+                    
+                    context[:user_feed] = @user_feed&.reload
                 end
                 
             end

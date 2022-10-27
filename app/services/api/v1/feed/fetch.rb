@@ -9,8 +9,8 @@ module Api
                 validates :current_user, presence: true
 
                 def call
-                    @feeds = ::FeedRepository::Feed.current_user_feeds(@current_user.email)
-                    context[:feeds] = @feeds
+                    @user_feeds = ::UserFeedRepository::UserFeed.fetch_by_user_id(@current_user.id)
+                    context[:user_feeds] = @user_feeds
                 end
                 
             end
