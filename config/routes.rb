@@ -12,6 +12,12 @@ Rails.application.routes.draw do
           get :logout
         end
       end
+
+      resources :websites do
+        collection do
+          post :add_url
+        end
+      end
     end
   end
 end
