@@ -6,7 +6,7 @@ module UserRepository
     end
 
     def self.create(parameters)
-      ::User.create(parameters)
+      ::User.create!(parameters)
     end
 
     def self.find_user_by_email(email)

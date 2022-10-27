@@ -6,7 +6,7 @@ module UserRoleRepository
       end
   
       def self.create(parameters)
-        ::UserRole.create(parameters)
+        ::UserRole.create!(parameters)
       end
     end
   end

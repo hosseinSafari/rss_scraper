@@ -16,11 +16,11 @@ module Api
           ActiveRecord::Base.transaction do
               @user = ::UserRepository::User.create(user_params)
               @user_role = ::UserRoleRepository::UserRole.create(user_role_params)
+              @token = @user&.generate_token
+              ::SessionRepository::Session.create({user: @user, token: @token})
           end
 
-          token = @user&.generate_token
-          ::SessionRepository::Session.create({token: token})
-          context[:token] = token
+          context[:token] = @token
         end
 
         private 
@@ -30,7 +30,7 @@ module Api
         end
 
         def user_role_params
-          { user: @user, role: @role }
+          { user: @user, role: ::RoleRepository::Role.find_by_name("normal")}
         end
       end
     end

@@ -6,7 +6,7 @@ module SessionRepository
     end
 
     def self.create(parameters)
-      ::Session.create(parameters)
+      ::Session.create!(parameters)
     end
   end
 end
