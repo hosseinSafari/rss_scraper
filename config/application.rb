@@ -27,6 +27,8 @@ module RssScraper
     config.eager_load_paths << Rails.root.join('lib/auth')
     config.eager_load_paths << Rails.root.join('repository')
     config.eager_load_paths << Rails.root.join('validations')
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore, key: '_namespace_key'
 
     # Configuration for the application, engines, and railties goes here.
     #

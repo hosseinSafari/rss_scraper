@@ -11,6 +11,10 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'interactor'
 gem 'virtus'
+
+gem 'sidekiq'
+gem 'sidekiq-scheduler'
+gem 'sidekiq-cron'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 gem 'kaminari'
