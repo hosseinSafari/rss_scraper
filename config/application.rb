@@ -26,6 +26,7 @@ module RssScraper
     config.eager_load_paths << Rails.root.join('lib')
     config.eager_load_paths << Rails.root.join('lib/auth')
     config.eager_load_paths << Rails.root.join('repository')
+    config.eager_load_paths << Rails.root.join('validations')
 
     # Configuration for the application, engines, and railties goes here.
     #

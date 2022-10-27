@@ -13,7 +13,24 @@ module Api
         validates :password_confirmation, presence: true
 
         def call
+          ActiveRecord::Base.transaction do
+              @user = ::UserRepository::User.create(user_params)
+              @user_role = ::UserRoleRepository::UserRole.create(user_role_params)
+          end
 
+          token = @user&.generate_token
+          ::SessionRepository::Session.create({token: token})
+          context[:token] = token
+        end
+
+        private 
+
+        def user_params
+          { email: email, password: password, password_confirmation: password_confirmation }
+        end
+
+        def user_role_params
+          { user: @user, role: @role }
         end
       end
     end
