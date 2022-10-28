@@ -24,6 +24,8 @@ Rails.application.routes.draw do
           put :favorit
           put :read
           put :bookmark
+          get 'comments', to: 'feeds#comment_list'
+          post :comment
         end
       end
     end

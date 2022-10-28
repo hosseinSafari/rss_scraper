@@ -10,7 +10,6 @@ class User < ApplicationRecord
   has_many :user_feeds, dependent: :destroy
   has_many :feeds, through: :user_feeds
   has_many :comment, dependent: :destroy
-  has_many :feeds, through: :comment
 
   # Validations
   validates :password_confirmation, presence: true
