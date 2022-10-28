@@ -5,7 +5,7 @@ class ScrapFeedsWorker
 
   def perform
     ::WebsiteRepository::Site.fetch_all&.each do |site|
-      ::Api::V1::Website::ScrapFeed.call(site: site)
+      ::Api::V1::Feed::CreateScrapedFeeds.new(site).scrap
     end
   end
 end
