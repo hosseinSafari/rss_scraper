@@ -18,7 +18,7 @@ module WebsiteRepository
       end
 
       def self.current_site_users(id)
-        find(id)&.users
+        ::Site.find(id)&.users
       end
     end
 end

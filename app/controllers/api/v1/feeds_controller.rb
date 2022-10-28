@@ -24,6 +24,22 @@ module Api
                 @user_feed = result[:user_feed]
                 render "api/v1/feeds/show"
             end
+
+            def read
+                result = ::Api::V1::Feed::Read.call(id: params[:id], current_user: @current_user)
+                return render json: {errors: result.errors}, status: :bad_request if result.errors
+
+                @user_feed = result[:user_feed]
+                render "api/v1/feeds/show"
+            end
+
+            def bookmark
+                result = ::Api::V1::Feed::Bookmark.call(id: params[:id], current_user: @current_user)
+                return render json: {errors: result.errors}, status: :bad_request if result.errors
+
+                @user_feed = result[:user_feed]
+                render "api/v1/feeds/show"
+            end
         end
     end
 end

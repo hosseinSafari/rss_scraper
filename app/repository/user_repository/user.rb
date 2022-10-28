@@ -14,11 +14,11 @@ module UserRepository
     end
 
     def self.sessions(email)
-      find_user_by_email(email)&.sessions
+      ::User.find_by(email: email)&.sessions
     end
 
     def self.destroy_seesions(email)
-      find_user_by_email(email)&.sessions&.destroy_all
+      ::User.find_by(email: email)&.sessions&.destroy_all
     end
   end
 end

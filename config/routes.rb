@@ -22,6 +22,8 @@ Rails.application.routes.draw do
       resources :feeds, only: %i[index show] do
         member do
           put :favorit
+          put :read
+          put :bookmark
         end
       end
     end

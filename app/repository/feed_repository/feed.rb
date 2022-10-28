@@ -18,7 +18,7 @@ module FeedRepository
       end
 
       def self.update(id, parameters)
-        find(id)&.update!(parameters)
+        ::Feed.find(id)&.update!(parameters)
       end
     end
 end
