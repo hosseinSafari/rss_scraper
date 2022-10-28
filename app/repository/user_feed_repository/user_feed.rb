@@ -20,5 +20,9 @@ module UserFeedRepository
       def self.update(id, parameters)
         ::UserFeed.find(id)&.update(parameters)
       end
+
+      def self.find_or_create(parameters)
+        ::UserFeed.find_or_create_by!(parameters)
+      end
     end
 end

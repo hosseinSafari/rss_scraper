@@ -15,10 +15,11 @@ module Api
                 validates :site_id, presence: true
 
                 def call
-                    @feed = ::FeedRepository::Feed.find_or_create(parameters)
-        
+                    @feed = ::FeedRepository::Feed.update_or_create(url, parameters)
+                    return unless @feed&.is_a?(::Feed)
+                    
                     ::WebsiteRepository::Site.current_site_users(@site_id)&.each do |user|
-                        ::UserFeedRepository::UserFeed.create({user: user, feed: @feed})
+                        ::UserFeedRepository::UserFeed.find_or_create({user_id: user&.id, feed_id: @feed&.id})
                     end
                 end
 
