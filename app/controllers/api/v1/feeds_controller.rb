@@ -45,6 +45,7 @@ module Api
             def comment_list
                 result = ::Api::V1::Feed::CommentList.call(id: params[:id], current_user: @current_user)
                 return render json: {errors: result.errors}, status: :bad_request if result.errors
+                return render json: {message: "Comment not found!"}, status: :ok unless result[:comments].present?
 
                 @comments = Kaminari.paginate_array(result[:comments])&.page(params[:page] || 0).per(params[:per] || 10)
                 render "api/v1/comments/list"
