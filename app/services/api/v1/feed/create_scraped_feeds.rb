@@ -16,7 +16,7 @@ module Api
                     URI.open(url) do |rss|
                         feed = RSS::Parser.parse(rss)
                         feed.items.each do |item|
-                            ::CreateFeedWorker.new.perform(item.title, item.link, item.description, @site.id)
+                            ::CreateFeedWorker.perform_async(item.title, item.link, item.description, @site.id)
                         end
                     end 
                 end
