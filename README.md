@@ -1,5 +1,7 @@
 # Installation
 ```docker
+cp config/database.sample.yml config/database.yml
+cp config/application.sample.yml config/application.yml
 docker-compose up
 docker exec -it {containerId} bash
 rails db:create
