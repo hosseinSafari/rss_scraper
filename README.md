@@ -1,3 +1,14 @@
+# Instalation
+```docker
+docker-compose up
+docker exec -it {containerId} bash
+rails db:create
+rails db:migrate
+rails db:seed
+bundle exec sidekiq
+```
+
+
 # Register
 ```ruby
 POST
