@@ -1,0 +1,31 @@
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+#
+# App Information
+REPOSITORY_NAME: "TRB"
+ENVIRONMENT: 'development'
+
+# Database
+DATABASE_HOST: "postgres"
+DATABASE_USERNAME: "postgres"
+DATABASE_PASSWORD: "postgres"
+DATABASE_PORT: '5432'
+SECRET_KEY_BASE: "a4a8a17f9f5fa6ef27d7ad355053c3fa91fe6ccfbd027942772fec9d33291aa4d54bdfc45c1a547715de504ec9cd6446326cf71a04e2031d68e06cb573d18b1c"
+
+# JWT
+JWT_ALGORITHM: "HS256"
+
+# Redis and Sidekiq :
+REDIS_HOST: "redis"
+REDIS_PORT: "6379"
+SIDEKIQ_USERNAME: ''
+SIDEKIQ_PASSWORD: ''

@@ -38,4 +38,4 @@ RUN sudo mkdir -p tmp/sockets
 RUN sudo mkdir -p tmp/cache
 
 RUN chmod -R 777 $INSTALL_PATH
-CMD bin/rails server -b 0.0.0.0 -p 3000
+CMD bin/rails server -b 0.0.0.0 -p 3000 && rails db:creaet && rails db:migrate && bundle exec sidekiq
