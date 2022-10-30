@@ -1,4 +1,4 @@
-# Instalation
+# Installation
 ```docker
 docker-compose up
 docker exec -it {containerId} bash
