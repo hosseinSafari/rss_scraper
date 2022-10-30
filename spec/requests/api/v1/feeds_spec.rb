@@ -47,7 +47,6 @@ RSpec.describe "Api::V1::Feeds", type: :request do
       expect(response).to have_http_status(:bad_request)
     end
 
-
     it "Success" do
       @new_user_site = ::UserSite.create(user: @current_user, site: @new_site)
       get "/api/v1/feeds/#{@new_feed&.id}",

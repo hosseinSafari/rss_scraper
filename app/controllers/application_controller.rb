@@ -44,6 +44,7 @@ class ApplicationController < ActionController::API
     raise AuthenticationError unless auth.present?
 
     @current_user = ::User.find_by(email: auth['email'])
+    raise AuthenticationError unless @current_user&.sessions&.present?
     raise AuthenticationError unless @current_user.present?
   end
 
