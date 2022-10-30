@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Api::V1::Feeds", type: :request do
-  describe "GET /index" do
-    pending "add some examples (or delete) #{__FILE__}"
+  describe "Login Action" do
   end
 end
