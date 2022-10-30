@@ -10,7 +10,7 @@ module Api
 
                 def call
                     @user_feeds = ::UserFeedRepository::UserFeed.fetch_by_user_id(@current_user.id)
-                    context[:user_feeds] = @user_feeds
+                    context[:user_feeds] = @user_feeds&.order("created_at DESC")
                 end
                 
             end

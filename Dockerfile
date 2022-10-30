@@ -26,7 +26,8 @@ ADD Gemfile $INSTALL_PATH
 #ADD Gemfile.lock $INSTALL_PATH
 
 WORKDIR $INSTALL_PATH
-RUN /bin/bash -c -l 'bundle install'
+RUN bundle config set --local without 'development test'
+RUN bundle install
 
 ADD . $INSTALL_PATH
 RUN sudo mkdir -p log

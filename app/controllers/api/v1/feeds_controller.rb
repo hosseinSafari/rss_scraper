@@ -12,7 +12,7 @@ module Api
             end
 
             def show
-                result = ::Api::V1::Feed::Show.call(current_user: @current_user, id: params[:id])
+                result = ::Api::V1::Feed::Get.call(current_user: @current_user, id: params[:id])
                 return render json: {errors: result.errors}, status: :bad_request if result.errors
         
                 @user_feed = result[:user_feed]
