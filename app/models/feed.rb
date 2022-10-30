@@ -3,8 +3,8 @@ class Feed < ApplicationRecord
     has_many :user_feeds, dependent: :destroy
     has_many :users, through: :user_feeds
     belongs_to :site
-    has_many :comment, dependent: :destroy
-    has_many :users, through: :comment
+    has_many :comments, dependent: :destroy
+    has_many :users, through: :comments
 
     # Validations
     validates :url, presence: true, uniqueness: true

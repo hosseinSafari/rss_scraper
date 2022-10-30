@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :sites, through: :user_sites
   has_many :user_feeds, dependent: :destroy
   has_many :feeds, through: :user_feeds
-  has_many :comment, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   # Validations
   validates :password_confirmation, presence: true
